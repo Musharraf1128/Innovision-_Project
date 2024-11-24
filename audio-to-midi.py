@@ -19,11 +19,9 @@ def audio_to_midi(audio_path, output_path, min_note_duration=0.1):
             print(f"Error: Input file '{audio_path}' not found.")
             return
 
-        # Load the audio file
         print(f"Loading audio file: {audio_path}")
         audio, sr = librosa.load(audio_path)
         
-        # Perform pitch detection
         print("Detecting pitches...")
         pitches, magnitudes = librosa.piptrack(y=audio, sr=sr)
         
@@ -32,7 +30,6 @@ def audio_to_midi(audio_path, output_path, min_note_duration=0.1):
         piano_program = pretty_midi.instrument_name_to_program('Acoustic Grand Piano')
         piano = pretty_midi.Instrument(program=piano_program)
         
-        # Convert detected pitches to MIDI notes
         print("Converting to MIDI notes...")
         onset_frames = librosa.onset.onset_detect(y=audio, sr=sr)
         onset_times = librosa.frames_to_time(onset_frames, sr=sr)
@@ -60,10 +57,8 @@ def audio_to_midi(audio_path, output_path, min_note_duration=0.1):
                     )
                     piano.notes.append(note)
         
-        # Add the instrument to the MIDI file
         pm.instruments.append(piano)
         
-        # Save the MIDI file
         print(f"Saving MIDI file to: {output_path}")
         pm.write(output_path)
         print("Conversion completed successfully!")
@@ -75,18 +70,14 @@ def audio_to_midi(audio_path, output_path, min_note_duration=0.1):
         return None
 
 def main():
-    # Check if audio file path is provided as command line argument
     if len(sys.argv) < 2:
         print("Usage: python3 audio-to-midi.py <input_audio_file> [output_midi_file]")
         sys.exit(1)
     
-    # Get input file from command line argument
     input_file = sys.argv[1]
     
-    # Get output file from command line argument or use default
     output_file = sys.argv[2] if len(sys.argv) > 2 else "output.mid"
     
-    # Convert the file
     audio_to_midi(input_file, output_file)
 
 if __name__ == "__main__":

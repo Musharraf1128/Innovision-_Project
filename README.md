@@ -3,6 +3,11 @@
 # Audio-to-MIDI Converter
 An innovative tool that converts audio files (e.g., .wav, .mp3) into MIDI files, enabling users to analyze, edit, and reimagine musical compositions.  
 
+## Colaborators:
+1. Musharraf
+2. Ridham
+3. Kavya
+
 ## Use Cases  
 - Transcribing music for educational purposes. 
 - Analyzing musical compositions. 

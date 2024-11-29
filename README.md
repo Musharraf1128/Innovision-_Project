@@ -17,11 +17,11 @@ An innovative tool that converts audio files (e.g., .wav, .mp3) into MIDI files,
 - Python 3.8+ 
 - `librosa`, `numpy`, and other relevant libraries. Install using: 
 -  ```bash
-to install these libraries use :
-pip install librosa pretty_midi scipy numpy
+to install these libraries use the following:
+Pip install librosa pretty_midi scipy numpy
 
 ## How to start
 1. start the server by running app.py file as python3 manage.py
-2. open index.html file in templates folder
+2. Open the index.html file in the templates folder or go to the link shown in the terminal where you started the server.
 3. upload the audio file
-4. mid file will be downloaded in your Downloads folder.
+4. The mid file will be downloaded in your Downloads folder.
